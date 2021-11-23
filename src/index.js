@@ -2,7 +2,8 @@ const find = require("local-devices");
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const port = 4100;
+const PORT = 4100;
+const REFRESH_INTERVAL = "00 */5 * * * *";
 const SimpleNodeLogger = require("simple-node-logger"),
   opts = {
     timestampFormat: "YYYY-MM-DD HH:mm:ss",
@@ -55,11 +56,13 @@ app.get("/api/refresh", (req, res) => {
     });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Lan list API started at Port ${PORT}`);
 });
 
-const job = new CronJob("00 */5 * * * *", function () {
+// todo add https
+
+const job = new CronJob(REFRESH_INTERVAL, function () {
   refreshDevices();
 });
 
