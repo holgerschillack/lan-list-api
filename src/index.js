@@ -60,8 +60,6 @@ app.listen(PORT, () => {
   console.log(`Lan list API started at Port ${PORT}`);
 });
 
-// todo add https
-
 const job = new CronJob(REFRESH_INTERVAL, function () {
   refreshDevices();
 });
