@@ -8,7 +8,7 @@
 
 ## Description
 
-- is a Node JS Express based API
+- it's a Node JS Express based API
 - it refreshes the local network device list every 5 min via a cron job
 - has two API-Routes:
   - GET `api/devices` to pull current in memory network device list (~10ms)
@@ -20,3 +20,5 @@
 
 - port can be configured: `PORT`
 - internal refresh Interval for devices can be configured as cron time: `REFRESH_INTERVAL`
+
+### [Corresponding Client Link](https://github.com/holgerschillack/lan-list-client)
